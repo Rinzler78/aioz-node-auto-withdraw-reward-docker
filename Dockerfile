@@ -22,9 +22,6 @@ VOLUME ["$NODEDATA_FOLDER"]
 RUN dist.update.sh
 RUN apt-get install -y $(cat $TOOLS_DIRECTORY/deps.txt)
 
-# Install node
-RUN node.install.sh
-
 # Check frequency : Default 1H
 ENV CHECK_FREQ 60
 
@@ -33,5 +30,5 @@ ENV WITHDRAW_ADDRESS_HEX 0x4D11B64d9bb0652a92FCaD019d7Fc79f14821571
 ENV WITHDRAW_MIN_VALUE 10**18
 
 # Entry point
-# CMD start.sh
-CMD bash    
+CMD start.sh
+# CMD bash

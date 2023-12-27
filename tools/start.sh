@@ -1,11 +1,11 @@
 #!/bin/bash
 
-## Re Run deploy
-if ! deploy.sh
-then
-    echo "Deploymentt failed"
-    exit 1
-fi
+# ## Re Run deploy
+# if ! deploy.sh
+# then
+#     echo "Deploymentt failed"
+#     exit 1
+# fi
 
 echo "Starting node for ${CHECK_FREQ}s..."
 

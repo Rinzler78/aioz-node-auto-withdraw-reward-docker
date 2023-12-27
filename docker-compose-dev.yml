@@ -4,15 +4,34 @@ services:
     image: aioznode
     ports:
       - "1317:1317" # Expose le port 1317 pour que les autres conteneurs puissent y accéder
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:1317/worker/balance"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+    restart: always
     networks:
       - aioznetwork
+    volumes:
+      - nodedata:/nodedata
+      - bin:/bin
 
   aioznode-auto-withdraw-reward:
     image: aioznode-auto-withdraw-reward
     depends_on:
-      - aioznode # Indique que ce service dépend de aioznode
+      # - aioznode # Indique que ce service dépend de aioznode
+      aioznode:
+        condition: service_healthy
+    restart: always
     networks:
       - aioznetwork
+    volumes:
+      - nodedata:/nodedata
+      - bin:/bin
 
 networks:
   aioznetwork:
+
+volumes:
+  nodedata:
+  bin:
