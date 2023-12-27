@@ -28,17 +28,17 @@ jobs:
     
     - name: docker build
       run: |
-        docker build -t aioznode-auto-with-reward . \
-        --tag rinzlerfr/aioznode-auto-with-reward:latest \
-        --tag rinzlerfr/aioznode-auto-with-reward:${{ steps.extract_tag.outputs.tag_name }}
+        docker build -t aioznode-auto-withdraw-reward . \
+        --tag rinzlerfr/aioznode-auto-withdraw-reward:latest \
+        --tag rinzlerfr/aioznode-auto-withdraw-reward:${{ steps.extract_tag.outputs.tag_name }}
         
-    #  --tag rinzlerfr/aioznode-auto-with-reward:quicktest \
+    #  --tag rinzlerfr/aioznode-auto-withdraw-reward:quicktest \
     
     #- name: Quick Test
      # run: |
-     #   ./quick_test.sh rinzlerfr/aioznode-auto-with-reward:quicktest
+     #   ./quick_test.sh rinzlerfr/aioznode-auto-withdraw-reward:quicktest
     
     - name: docker push
       run: |
-        docker push rinzlerfr/aioznode-auto-with-reward:${{ steps.extract_tag.outputs.tag_name }}
-        docker push rinzlerfr/aioznode-auto-with-reward:latest
+        docker push rinzlerfr/aioznode-auto-withdraw-reward:${{ steps.extract_tag.outputs.tag_name }}
+        docker push rinzlerfr/aioznode-auto-withdraw-reward:latest
