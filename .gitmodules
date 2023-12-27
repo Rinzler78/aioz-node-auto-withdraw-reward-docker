@@ -1,0 +1,3 @@
+[submodule "aioz-node-docker"]
+	path = aioz-node-docker
+	url = https://github.com/Rinzler78/aioz-node-docker.git

@@ -1,0 +1,18 @@
+version: '3'
+services:
+  aioznode:
+    image: aioznode
+    ports:
+      - "1317:1317" # Expose le port 1317 pour que les autres conteneurs puissent y accéder
+    networks:
+      - aioznetwork
+
+  aioznode-auto-withdraw-reward:
+    image: aioznode-auto-withdraw-reward
+    depends_on:
+      - aioznode # Indique que ce service dépend de aioznode
+    networks:
+      - aioznetwork
+
+networks:
+  aioznetwork:
