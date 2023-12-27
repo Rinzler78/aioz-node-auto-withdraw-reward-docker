@@ -34,6 +34,7 @@ echo "Storage earned : $storageEarned $storageEarnedDenom"
 echo "Delivery earned : $deliveryEarned $deliveryEarnedDenom"
 echo "Withdraw : $withdraw $withdrawDenom"
 echo "Delivery count : $deliveryCount $deliveryCountDenom"
+echo ""
 
 if [[ "$balance" != "null" && "$balance" -gt $WITHDRAW_MIN_VALUE ]]; then
     echo "Try to withdraw... aioznode reward withdraw --endpoint "http://aioznode:1317" --address $WITHDRAW_ADDRESS_HEX --amount $balance$balanceDenom --priv-key-file $PRIV_KEY_FILE"
