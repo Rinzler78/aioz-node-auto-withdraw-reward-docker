@@ -2,6 +2,6 @@
 ./helper.docker.stop.sh
 
 name=$(cat helper.docker.name.txt)
-echo "Launching : docker run $@ --name $name -it $name"
+echo "Launching : docker compose -f docker-compose.yml up"
 
-docker run -P $@ --restart=always --name $name -it $name
+docker compose -f docker-compose.yml up
