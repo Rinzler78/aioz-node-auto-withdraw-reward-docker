@@ -13,8 +13,7 @@ services:
     networks:
       - aioznetwork
     volumes:
-      - nodedata:/nodedata
-      - bin:/bin
+      - ~/Tmp_data/aioznode/nodedata:/nodedata
 
   aioznode-auto-withdraw-reward:
     image: rinzlerfr/aioznode-auto-withdraw-reward
@@ -26,12 +25,7 @@ services:
     networks:
       - aioznetwork
     volumes:
-      - nodedata:/nodedata
-      - bin:/bin
+      - ~/Tmp_data/aioznode/nodedata:/nodedata
 
 networks:
   aioznetwork:
-
-volumes:
-  nodedata:
-  bin:

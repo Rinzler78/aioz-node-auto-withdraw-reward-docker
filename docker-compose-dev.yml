@@ -13,7 +13,7 @@ services:
     networks:
       - aioznetwork
     volumes:
-      - nodedata:/nodedata
+      - ~/Tmp_data/aioznode/nodedata:/nodedata
 
   aioznode-auto-withdraw-reward:
     image: aioznode-auto-withdraw-reward
@@ -25,10 +25,7 @@ services:
     networks:
       - aioznetwork
     volumes:
-      - nodedata:/nodedata
+      - ~/Tmp_data/aioznode/nodedata:/nodedata
 
 networks:
   aioznetwork:
-
-volumes:
-  nodedata:
