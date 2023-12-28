@@ -1,1 +1,1 @@
-jq wget nano curl
+bc jq wget nano curl

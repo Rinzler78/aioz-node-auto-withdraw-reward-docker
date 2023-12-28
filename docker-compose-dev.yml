@@ -14,7 +14,6 @@ services:
       - aioznetwork
     volumes:
       - nodedata:/nodedata
-      - bin:/bin
 
   aioznode-auto-withdraw-reward:
     image: aioznode-auto-withdraw-reward
@@ -27,11 +26,9 @@ services:
       - aioznetwork
     volumes:
       - nodedata:/nodedata
-      - bin:/bin
 
 networks:
   aioznetwork:
 
 volumes:
   nodedata:
-  bin:
