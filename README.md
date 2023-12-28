@@ -1,13 +1,19 @@
 # Purpose
 
-This sources allow to create docker image contains all necessary components to run aioz node.
+This sources allow to automatically withdraw rewards from an aioz node.
 
 For more informations on the aioz project lets go to => <https://aioz.network/>
 
 Downloads and client installation are available at => <https://aioz.network/aioz-node>
 
+See also aioz-node project => <https://github.com/Rinzler78/aioz-node-docker>
+
 ## Table of contents
 
+* [quick start](#quick-start)
+  * [docker compose](#docker-compose)
+    * [Production environment](#production-environment)
+    * [Development environment](#development-environment)
 * [docker creation](#docker-creation)
   * [dockerFile](#dockerfile)
   * [Build instructions](#build-instructions)
@@ -20,6 +26,27 @@ Downloads and client installation are available at => <https://aioz.network/aioz
   * [Create datadir directory](#create-datadir-directory)
   * [Configure image and start container](#configure-image-and-start-container)
 * [Support](#support)
+
+## Quick start
+
+The best way to quickly start project is to use docker compose.
+It will deploy an aioz-node container and a aioznode-auto-withdraw-reward and configure links between.
+
+### Docker compose
+
+#### Production environment
+
+For production use, launch the following script :
+./helper.docker.start.compose.sh
+
+This will use the docker-compose.yml file and deploy dockerhub containers versions
+
+#### Development environment
+
+For development use, launch the following script :
+./helper.docker.start.compose.dev.sh
+
+This will use the docker-compose-dev.yml file and deploy containers versions from github sources (aioz-node container and aioznode-auto-withdraw-reward)
 
 ## docker creation
 
@@ -34,6 +61,7 @@ This container is based on an ubuntu:latest.
 Following packages are installed :
 
 * wget => Allow to download the aioznode binary from github link => <https://github.com/AIOZNetwork/aioz-dcdn-cli-node/releases>
+* bc => Allow to compute floating value
 * curl and wget => Update aioznode
 
 #### aioznode installation
@@ -82,7 +110,7 @@ docker run -d \
 
 ### Public docker image
 
-Public container is available at <https://hub.docker.com/repository/docker/rinzlerfr/aioznode>
+Public container is available at <https://hub.docker.com/r/rinzlerfr/aioznode-auto-withdraw-reward>
 
 ## Synology nas docker deployment
 
@@ -92,7 +120,7 @@ if not installed, go to the package center, search docker and install it.
 
 ### Search aioznode image
 
-Go to docker GUI and search "rinzlerfr/aioznode" in the register page.
+Go to docker GUI and search "rinzlerfr/aioznode-auto-withdraw-reward" in the register page.
 Once found download it.
 
 ### Create datadir directory
@@ -101,9 +129,9 @@ Using File station, create a directory on your syno to link to the container dat
 
 ### Configure image and start container
 
-Back to docker GUI, in Images. Select the "rinzlerfr/aioznode" image, and click launch.
+Back to docker GUI, in Images. Select the "rinzlerfr/aioznode-auto-withdraw-reward" image, and click launch.
 
-* Give a name to your container. Exemple : aioznode
+* Give a name to your container. Exemple : aioznode-auto-withdraw-reward
 * Enable resources limitation (optional) :
 -- Put processor priority to high.
 -- Put 1024 MB limitation
