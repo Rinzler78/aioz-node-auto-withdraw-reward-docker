@@ -1,27 +1,26 @@
-FROM ubuntu:latest
+FROM rinzlerfr/aioznode:latest
 
-ENV HOME /root
-ENV TOOLS_DIRECTORY /tools
-ENV NODEDATA_FOLDER /nodedata
-ENV NODEDATA_SEGMENT_FOLDER /nodedata/data
-ENV PATH $NODEDATA_FOLDER:$TOOLS_DIRECTORY:$HOME:$PATH
+# ENV HOME /root
+# ENV TOOLS_DIRECTORY /tools
+# ENV NODEDATA_FOLDER /nodedata
+# ENV PATH $NODEDATA_FOLDER:$TOOLS_DIRECTORY:$HOME:$PATH
 
-ENV PRIV_KEY_FILE $NODEDATA_FOLDER/privkey.json
-ENV REPO_NAME AIOZNetwork/aioz-dcdn-cli-node
-ENV BINARY_NAME aioznode
+# ENV PRIV_KEY_FILE $NODEDATA_FOLDER/privkey.json
+# ENV REPO_NAME AIOZNetwork/aioz-dcdn-cli-node
+# ENV BINARY_NAME aioznode
 
-## Tools
-RUN mkdir $TOOLS_DIRECTORY
+# ## Tools
+# RUN mkdir $TOOLS_DIRECTORY
 COPY tools/*.* $TOOLS_DIRECTORY/
 RUN chmod +x $TOOLS_DIRECTORY/*.sh
 
-## Node data
-RUN mkdir $NODEDATA_FOLDER
-VOLUME ["$NODEDATA_FOLDER"]
+# ## Node data
+# RUN mkdir $NODEDATA_FOLDER
+# VOLUME ["$NODEDATA_FOLDER"]
 
 ## Install deps
 RUN dist.update.sh
-RUN apt-get install -y $(cat $TOOLS_DIRECTORY/deps.txt)
+RUN apt-get install -y bc
 
 # Check frequency : Default 1H
 ENV ENDPOINT http://aioznode:1317
@@ -37,5 +36,5 @@ ENV TOKEN_DENOM attoaioz
 ENV TOKEN_DECIMALS 10^18
 
 # Entry point
-CMD start.sh
+CMD start-watching-reward.sh
 # CMD bash

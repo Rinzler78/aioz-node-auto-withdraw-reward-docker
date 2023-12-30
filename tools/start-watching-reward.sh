@@ -3,7 +3,7 @@
 ## Re Run deploy
 if ! deploy.sh
 then
-    echo "Deploymentt failed"
+    echo "Deployment failed"
     exit 1
 fi
 

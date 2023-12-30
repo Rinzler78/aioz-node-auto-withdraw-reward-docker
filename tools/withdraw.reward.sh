@@ -7,12 +7,11 @@ then
 fi
 
 toNumber(){
-    if [ "$1" == "null" ]; then
+    if [ -z "$1" ] || [ "$1" == "null" ]; then
         echo 0
-        return
+    else
+        echo "$1"
     fi
-
-    echo $1
 }
 
 convertToTokenValue(){
