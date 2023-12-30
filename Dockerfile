@@ -20,7 +20,7 @@ RUN chmod +x $TOOLS_DIRECTORY/*.sh
 
 ## Install deps
 RUN dist.update.sh
-RUN apt-get install -y bc
+RUN apk add bc
 
 # Check frequency : Default 1H
 ENV ENDPOINT http://aioznode:1317
