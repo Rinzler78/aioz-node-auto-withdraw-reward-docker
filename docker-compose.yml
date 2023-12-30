@@ -22,6 +22,9 @@ services:
       aioznode:
         condition: service_healthy
     restart: always
+    environment:
+      - CHECK_FREQ=60
+      - ENDPOINT=http://aioznode:1317
     networks:
       - aioznetwork
     volumes:

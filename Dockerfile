@@ -24,6 +24,7 @@ RUN dist.update.sh
 RUN apt-get install -y $(cat $TOOLS_DIRECTORY/deps.txt)
 
 # Check frequency : Default 1H
+ENV ENDPOINT http://aioznode:1317
 ENV CHECK_FREQ 60
 
 # Withdraw options

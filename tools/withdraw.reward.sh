@@ -19,7 +19,7 @@ convertToTokenValue(){
     echo "scale=5; $1 / $TOKEN_DECIMALS" | bc -l
 }
 
-reward=$(aioznode reward balance --endpoint "http://aioznode:1317")
+reward=$(aioznode reward balance --endpoint "$ENDPOINT")
 # echo "Reward balance json : $reward"
 
 # Retrieve storage earned
@@ -44,7 +44,7 @@ deliveryCount=$(echo $reward | jq '.delivery_counter' | sed 's/\"//g')
 # Retrieve data file count
 storedSegmentCount=$(ls $NODEDATA_SEGMENT_FOLDER | wc -l)
 
-echo "Node rewards status : "
+echo "Node rewards status ($ENDPOINT) : "
 echo "=> Balance : $balance $TOKEN_DENOM => $(convertToTokenValue $balance) $TOKEN_NAME"
 echo "=> Storage : $storageEarned $TOKEN_DENOM => $(convertToTokenValue $storageEarned) $TOKEN_NAME"
 echo "=> Delivery : $deliveryEarned $TOKEN_DENOM => $(convertToTokenValue $deliveryEarned) $TOKEN_NAME"
