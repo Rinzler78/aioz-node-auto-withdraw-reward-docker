@@ -56,6 +56,6 @@ echo "=> Remaining balance to withdraw : $remainingBalanceToWithDraw $TOKEN_DENO
 echo " "
 
 if [ "$balance" -gt "$minimumBalanceToWithDraw" ]; then
-    echo "Try to withdraw... aioznode reward withdraw --endpoint "http://aioznode:1317" --address $WITHDRAW_ADDRESS_HEX --amount $balance$balanceDenom --priv-key-file $PRIV_KEY_FILE"
-    aioznode reward withdraw --endpoint "http://aioznode:1317" --address $WITHDRAW_ADDRESS_HEX --amount $balance$balanceDenom --priv-key-file $PRIV_KEY_FILE
+    echo "Try to withdraw... aioznode reward withdraw --endpoint "$ENDPOINT" --address $WITHDRAW_ADDRESS_HEX --amount $balance$balanceDenom --priv-key-file $PRIV_KEY_FILE"
+    aioznode reward withdraw --endpoint "$ENDPOINT" --address $WITHDRAW_ADDRESS_HEX --amount $balance$balanceDenom --priv-key-file $PRIV_KEY_FILE
 fi

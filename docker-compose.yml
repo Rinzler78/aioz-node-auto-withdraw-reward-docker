@@ -5,7 +5,8 @@ services:
     ports:
       - "1317:1317" # Expose le port 1317 pour que les autres conteneurs puissent y accéder
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://127.0.0.1:1317/worker/balance"]
+      # test: ["CMD", "curl", "-f", "http://127.0.0.1:1317/worker/balance"]
+      test: ["CMD", "aioznode", "reward", "balance"]
       interval: 10s
       timeout: 10s
       retries: 5
