@@ -23,7 +23,7 @@ reward=$(aioznode reward balance --endpoint "$ENDPOINT")
 
 # Retrieve storage earned
 balance=$(toNumber $(echo $reward | jq '.balance[0].amount' | sed 's/\"//g'))
-# balanceDenom=$(echo $reward | jq '.balance[0].denom' | sed 's/\"//g')
+balanceDenom=$(echo $reward | jq '.balance[0].denom' | sed 's/\"//g')
 
 # Retrieve storage earned
 storageEarned=$(toNumber $(echo $reward | jq '.storage_earned[0].amount' | sed 's/\"//g'))
